@@ -1,0 +1,15 @@
+{
+  "name": "ar-museum-viewer",
+  "version": "1.0.0",
+  "description": "AR Museum Viewer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "npx http-server -p 8080 -c-1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.9"
+  }
+}

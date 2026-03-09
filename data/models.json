@@ -1,0 +1,61 @@
+{
+  "proxyUrl": "",
+  "artifacts": [
+    {
+      "id": "hitem3d_compressed",
+      "name": "Artifact 1 (Compressed)",
+      "description": "Local compressed model for fast loading (4 MB).",
+      "modelUrl": "3d models/hitem3d.compressed.glb",
+      "arModelUrl": "3d models/hitem3d.compressed.glb",
+      "realWorldHeight": 0.15
+    },
+    {
+      "id": "hitem3d_compressed_1",
+      "name": "Artifact 2 (Compressed)",
+      "description": "Local compressed model for fast loading (4 MB).",
+      "modelUrl": "3d models/hitem3d.compressed (1).glb",
+      "arModelUrl": "3d models/hitem3d.compressed (1).glb",
+      "realWorldHeight": 0.15
+    },
+    {
+      "id": "hitem3d_2_compressed",
+      "name": "Artifact 3 (Medium)",
+      "description": "Medium compressed model (35 MB).",
+      "modelUrl": "3d models/hitem3d(2)-compressed.glb",
+      "arModelUrl": "3d models/hitem3d.compressed.glb",
+      "realWorldHeight": 0.3
+    },
+    {
+      "id": "hitem3d-compressed-large",
+      "name": "Artifact 4 (Medium)",
+      "description": "Medium compressed model (35 MB).",
+      "modelUrl": "3d models/hitem3d-compressed.glb",
+      "arModelUrl": "3d models/hitem3d.compressed.glb",
+      "realWorldHeight": 0.3
+    },
+    {
+      "id": "hitem3d_1",
+      "name": "Artifact 5 (High Res)",
+      "description": "High resolution uncompressed model (64 MB).",
+      "modelUrl": "3d models/hitem3d(1).glb",
+      "arModelUrl": "3d models/hitem3d.compressed.glb",
+      "realWorldHeight": 0.5
+    },
+    {
+      "id": "hitem3d_2",
+      "name": "Artifact 6 (High Res)",
+      "description": "High resolution uncompressed model (64 MB).",
+      "modelUrl": "3d models/hitem3d(2).glb",
+      "arModelUrl": "3d models/hitem3d.compressed.glb",
+      "realWorldHeight": 0.5
+    },
+    {
+      "id": "hitem3d",
+      "name": "Artifact 7 (Max Res)",
+      "description": "Maximum resolution uncompressed model (69 MB).",
+      "modelUrl": "3d models/hitem3d.glb",
+      "arModelUrl": "3d models/hitem3d.compressed.glb",
+      "realWorldHeight": 0.6
+    }
+  ]
+}

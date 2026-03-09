@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>AR Museum Viewer</title>
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Import Maps -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.164.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.0/examples/jsm/"
+            }
+        }
+    </script>
+    
+    <!-- Load main script directly without AR.js dependency -->
+    <script type="module">
+        import('./main.js').catch(err => console.error("Error loading main.js:", err));
+    </script>
+</head>
+<body>
+    <div id="app">
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="hidden">
+            <div class="spinner"></div>
+            <p>Loading Artifact...</p>
+            <div class="progress-bar-container">
+                <div id="loading-progress" class="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- Sidebar / Gallery -->
+        <aside id="sidebar">
+            <header>
+                <h1>AR Museum</h1>
+                <p>Interactive Artifact Viewer</p>
+            </header>
+            <nav id="gallery-list">
+                <!-- Artifact cards will be injected here -->
+            </nav>
+        </aside>
+
+        <!-- Main Viewer Area -->
+        <main id="main-area">
+            <!-- 3D Canvas container -->
+            <div id="viewer-container"></div>
+            
+            <!-- Floating Controls -->
+            <div id="controls-panel" class="hidden">
+                <h2 id="current-artifact-title">Artifact Title</h2>
+                <div class="button-group">
+                    <button id="btn-reset-cam" class="btn secondary">Reset Camera</button>
+                    <button id="btn-enter-ar" class="btn primary">View in AR</button>
+                </div>
+            </div>
+        </main>
+        
+        <!-- AR specific UI (Used by WebXR DOM Overlay) -->
+        <div id="ar-ui-layer" class="hidden">
+            
+            <!-- Scanning Animation Overlay -->
+            <div id="ar-scanning-overlay" class="scanning-overlay">
+                <div class="scan-line"></div>
+                <p>Find a surface</p>
+            </div>
+
+            <!-- Drag Indicator -->
+            <div id="ar-drag-indicator" class="hidden" style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); background: rgba(201, 168, 76, 0.9); padding: 10px 20px; border-radius: 20px; color: #131322; font-weight: bold; pointer-events: none; z-index: 20; box-shadow: 0 0 15px rgba(201, 168, 76, 0.5);">
+                Move to new position
+            </div>
+
+            <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; padding-top: 20px; pointer-events: none; z-index: 10;">
+                <div class="ar-instructions" id="ar-instructions" style="pointer-events: auto;">
+                    Point camera at floor and move slowly. Tap the ring to place your artifact.
+                </div>
+                
+                <div id="ar-interaction-panel" class="hidden" style="margin-top:20px; background: rgba(0,0,0,0.7); padding: 15px; border-radius: 12px; pointer-events: auto; width: 80%; max-width: 300px; color: white;">
+                    <div style="margin-bottom: 15px;">
+                        <label style="font-family: var(--font-ui); font-size: 0.9rem;">Scale</label>
+                        <input type="range" id="ar-scale-slider" min="0.1" max="3" step="0.1" value="1" style="width: 100%;">
+                    </div>
+                    <div>
+                        <label style="font-family: var(--font-ui); font-size: 0.9rem;">Rotate</label>
+                        <input type="range" id="ar-rotate-slider" min="-180" max="180" step="1" value="0" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+            <button id="btn-exit-ar" class="btn primary" style="pointer-events: auto; margin-bottom: 30px;">Exit AR</button>
+        </div>
+    </div>
+
+</body>
+</html>
