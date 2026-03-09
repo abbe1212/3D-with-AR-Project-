@@ -55,10 +55,16 @@ app.get('/proxy', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`=================================`);
-    console.log(` Museum Viewer Proxy Server      `);
-    console.log(`=================================`);
-    console.log(` App available at: http://localhost:${PORT}`);
-    console.log(` Proxy available at: http://localhost:${PORT}/proxy?url=...`);
-});
+// Export the Express API for Vercel
+module.exports = app;
+
+// Only listen if run directly (Local Development)
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`=================================`);
+        console.log(` Museum Viewer Proxy Server      `);
+        console.log(`=================================`);
+        console.log(` App available at: http://localhost:${PORT}`);
+        console.log(` Proxy available at: http://localhost:${PORT}/proxy?url=...`);
+    });
+}
